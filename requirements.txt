@@ -9,4 +9,4 @@ Werkzeug
 bs4
 gunicorn
 flask-cors
-random
+mkl-random===1.1.1
