@@ -7,11 +7,13 @@ This API is capable of fetching movies/shows from fmovies and provide you a URL 
 
 so, if you are not able to get requests, add `proxy=true` to your parameters.
 
-example - https://movie.vandit.cf/home?suggest=shows&proxy=true
+example - https://fmovies-api.herokuapp.com/home?suggest=all&proxy=true
 
-**but bear in mind that average response time after using proxy is 20-30 seconds for each request**
+- **but bear in mind that average response time after using proxy is 20-30 seconds for each request**
 
-### DUE TO DEPLOYMENT ISSUE 'PROXY' MIGHT GIVE AN ERROR BUT IT WILL WORK FINE ON LOCALHOST
+- **it may fail to get requests due to time out so do reload the page and give it some time**
+
+- **IT IS RECOMMENDED TO USE HEROKU DEPLOYMENT WHILE USING PROXY**
 ---
 
 ## Endpoints
