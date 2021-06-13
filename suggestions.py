@@ -1,19 +1,32 @@
+from proxy import Random_Proxy
 import requests
 from bs4 import BeautifulSoup
 
-def getSuggestions(suggest):
+def getSuggestions(suggest, proxie):
     suggestionsDictionary = {
         'success': True,
         'type': suggest,
     }
 
-    try:
-        base_url = f'https://fmovies.to/home'
-        soup = BeautifulSoup(requests.get(base_url).content, 'lxml')
-    except requests.exceptions.RequestException as e:
-        suggestionsDictionary['success'] = False,
-        suggestionsDictionary['error'] = str(e),
-        return suggestionsDictionary
+    proxy = Random_Proxy()
+
+    if proxie == 'true':
+        try:
+            base_url = f'https://fmovies.to/home'
+            r = proxy.Proxy_Request(url=base_url, request_type='get')
+            soup = BeautifulSoup(r.content, 'lxml')
+        except requests.exceptions.RequestException as e:
+            suggestionsDictionary['success'] = False,
+            suggestionsDictionary['error'] = str(e),
+            return suggestionsDictionary
+    else:
+        try:
+            base_url = f'https://fmovies.to/home'
+            soup = BeautifulSoup(requests.get(base_url).content, 'lxml')
+        except requests.exceptions.RequestException as e:
+            suggestionsDictionary['success'] = False,
+            suggestionsDictionary['error'] = str(e),
+            return suggestionsDictionary
 
     items = soup.find_all('div', class_='tab-content')
     types = []

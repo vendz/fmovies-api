@@ -3,6 +3,15 @@
 This API is capable of fetching movies/shows from fmovies and provide you a URL to stream it
 
 ---
+**NOTE:** this api works on torrent so it is possible you might not be able to get requests. in order to overcome this problem I have set up `proxy`. 
+
+so, if you are not able to get requests, add `proxy=true` to your parameters.
+
+example - https://movies.vandit.cf/home?suggest=shows&proxy=true
+
+**but bear in mind that average response time after using proxy is 20-30 seconds for each request**
+
+---
 
 ## Endpoints
 
@@ -42,8 +51,9 @@ Example - https://movies.vandit.cf/search?keyword=who+killed+sara&page=4
 parameters:
   - search
   - page
+  - proxy
 
-`page` is an optional parameter and default value of page is 1
+`page` and `proxy` are optional parameters and default value of `page` is 1
 
 ---
 get details of your favourite movie/show

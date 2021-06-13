@@ -1,21 +1,33 @@
-from os import link
+from proxy import Random_Proxy
 import requests
 from bs4 import BeautifulSoup
 
-def getDetails(link):
+def getDetails(link, proxie):
     detailsDictionary = {
         'success': True,
         'link': link,
         'data': []
     }
 
-    try:
-        base_url = link
-        soup = BeautifulSoup(requests.get(base_url).content, 'lxml')
-    except requests.exceptions.RequestException as e:
-        detailsDictionary['success'] = False,
-        detailsDictionary['error'] = str(e),
-        return detailsDictionary
+    proxy = Random_Proxy()
+
+    if(proxie == 'true'):
+        try:
+            base_url = link
+            r = proxy.Proxy_Request(url=base_url, request_type='get')
+            soup = BeautifulSoup(r.content, 'lxml')
+        except requests.exceptions.RequestException as e:
+            detailsDictionary['success'] = False,
+            detailsDictionary['error'] = str(e),
+            return detailsDictionary
+    else:
+        try:
+            base_url = link
+            soup = BeautifulSoup(requests.get(base_url).content, 'lxml')
+        except requests.exceptions.RequestException as e:
+            detailsDictionary['success'] = False,
+            detailsDictionary['error'] = str(e),
+            return detailsDictionary
 
     items = soup.find_all('section', class_='info')
     

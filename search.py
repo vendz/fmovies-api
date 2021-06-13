@@ -1,22 +1,35 @@
 import requests
 from bs4 import BeautifulSoup
+from proxy import Random_Proxy
 
-def getMovies(query, page):
+def getMovies(query, page, proxie):
     moviesDictionary = {
         'success': True,
         'query': query,
         'data': [],
     }
-
+    proxy = Random_Proxy()
     try:
-        if page != None:
-            base_url = f'https://fmovies.to/search?keyword={query}&page={page}'
-            currentPage = page
-            soup = BeautifulSoup(requests.get(base_url).content, 'lxml')
+        if proxie == 'true':
+            if page != None:
+                base_url = f'https://fmovies.to/search?keyword={query}&page={page}'
+                currentPage = page
+                r = proxy.Proxy_Request(url=base_url, request_type='get')
+                soup = BeautifulSoup(r.content, 'lxml')
+            else:
+                base_url = f'https://fmovies.to/search?keyword={query}'
+                currentPage = '1'
+                r = proxy.Proxy_Request(url=base_url, request_type='get')
+                soup = BeautifulSoup(r.content, 'lxml')
         else:
-            base_url = f'https://fmovies.to/search?keyword={query}'
-            currentPage = '1'
-            soup = BeautifulSoup(requests.get(base_url).content, 'lxml')
+            if page != None:
+                base_url = f'https://fmovies.to/search?keyword={query}&page={page}'
+                currentPage = page
+                soup = BeautifulSoup(requests.get(base_url).content, 'lxml')
+            else:
+                base_url = f'https://fmovies.to/search?keyword={query}'
+                currentPage = '1'
+                soup = BeautifulSoup(requests.get(base_url).content, 'lxml')
     except requests.exceptions.RequestException as e:
         moviesDictionary['success'] = False,
         moviesDictionary['error'] = str(e),

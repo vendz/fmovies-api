@@ -18,21 +18,24 @@ def search():
     if request.method == 'GET':
         keyword = request.args.get('keyword')
         page = request.args.get('page')
-        return jsonify(getMovies(keyword, page))
+        proxy = request.args.get('proxy')
+        return jsonify(getMovies(keyword, page, proxy))
 
 
 @app.route('/home')
 def suggestions():
     if request.method == 'GET':
         suggest = request.args.get('suggest')
-        return jsonify(getSuggestions(suggest))
+        proxy = request.args.get('proxy')
+        return jsonify(getSuggestions(suggest, proxy))
 
 
 @app.route('/details')
 def details():
     if request.method =='GET':
         link = request.args.get('link')
-        return jsonify(getDetails(link))
+        proxy = request.args.get('proxy')
+        return jsonify(getDetails(link, proxy))
 
 if __name__ == '__main__':
     app.run(debug=True)
