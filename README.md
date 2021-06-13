@@ -7,7 +7,7 @@ This API is capable of fetching movies/shows from fmovies and provide you a URL 
 
 so, if you are not able to get requests, add `proxy=true` to your parameters.
 
-example - https://movies.vandit.cf/home?suggest=shows&proxy=true
+example - https://movie.vandit.cf/home?suggest=shows&proxy=true
 
 **but bear in mind that average response time after using proxy is 20-30 seconds for each request**
 
@@ -30,9 +30,9 @@ This API has 3 endpoints...
 
 get suggestions for movies/shows
 ```
-https://movies.vandit.cf/home?suggest=<your-query>
+https://movie.vandit.cf/home?suggest=<your-query>
 ```
-Example - https://movies.vandit.cf/home?suggest=shows
+Example - https://movie.vandit.cf/home?suggest=shows
 
 parameters:
   - suggest
@@ -44,9 +44,9 @@ parameters:
 ---
 search for your favourite movies/shows
 ```
-https://movies.vandit.cf/search?keyword=<your-query>&page=<your-query>
+https://movie.vandit.cf/search?keyword=<your-query>&page=<your-query>
 ```
-Example - https://movies.vandit.cf/search?keyword=who+killed+sara&page=4
+Example - https://movie.vandit.cf/search?keyword=who+killed+sara&page=4
 
 parameters:
   - search
@@ -58,9 +58,9 @@ parameters:
 ---
 get details of your favourite movie/show
 ```
-https://movies.vandit.cf/details?link=<your-query>
+https://movie.vandit.cf/details?link=<your-query>
 ```
-Example - https://movies.vandit.cf/details?link=https://fmovies.to/film/infinite.lrvkq
+Example - https://movie.vandit.cf/details?link=https://fmovies.to/film/infinite.lrvkq
 
 parameters:
   - link
