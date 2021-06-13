@@ -11,6 +11,7 @@ example - https://movie.vandit.cf/home?suggest=shows&proxy=true
 
 **but bear in mind that average response time after using proxy is 20-30 seconds for each request**
 
+### DUE TO DEPLOYMENT ISSUE 'PROXY' MIGHT GIVE AN ERROR BUT IT WILL WORK FINE ON LOCALHOST
 ---
 
 ## Endpoints
