@@ -5,7 +5,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-app.secret_key = "BE61D9E9B64AC871D85FD7C285F7D"
+app.secret_key = "DZmuZuXqa9O0z3b7"
 CORS(app)
 
 
